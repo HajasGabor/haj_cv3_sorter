@@ -23,7 +23,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            # 'control_vehicle = haj_cv3_sorter.control_vehicle:main',
+            'array_sorter = haj_cv3_sorter.array_sorter_node:main'
         ],
     },
 )
