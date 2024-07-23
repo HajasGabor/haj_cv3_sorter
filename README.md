@@ -9,7 +9,7 @@ It is assumed that the workspace is `~/ros2_ws/`.
 cd ~/ros2_ws/src
 ```
 ``` r
-git clone https://github.com/sze-info/haj_cv3_sorter
+git clone https://github.com/HajasGabor/haj_cv3_sorter
 ```
 
 ### Build ROS 2 packages
