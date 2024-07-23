@@ -20,10 +20,11 @@ class ArraySorterNode(Node):
         )
     
     def sorter_callback(self, msg):
+        self.get_logger().info(f'\nInput array: {list(msg.data)}')
         sorted_array = sorted(msg.data)
         sorted_msg = Float32MultiArray(data=sorted_array)
         self.publisher_.publish(sorted_msg)
-        self.get_logger().info(f'Sorted array: {sorted_msg.data}')
+        self.get_logger().info(f'\nSorted array: {list(sorted_msg.data)}')
 
 
 def main(args=None):
