@@ -29,31 +29,24 @@ source ~/ros2_ws/install/setup.bash
 </details>
 
 ``` r
-ros2 launch haj_cv3_sorter launch_example1.launch.py
+ros2 run haj_cv3_sorter array_sorter
 ```
 
-# Delete this part if you are using it as a template
-
-ROS 2 pacage template, to get started, use template by clicking on the Green button labeled [`Use this template`](https://github.com/sze-info/haj_cv3_sorter/generate) / [`Create new repository`](https://github.com/sze-info/haj_cv3_sorter/generate). 
-
-<p align="center"><img src="img/use_this_template01.png" width="60%" /></p>
+``` r
+ros2 topic pub /input_array std_msgs/msg/Float32MultiArray "{'data': [3.0, 1.0, 256.1, -24.5, 4.0, 1.5, 13.5, 9.6]}"
+```
 
 
-Let's assume 
-- your Github username is `mycoolusername`
-- your ROS 2 repo shold be `cool_ros2_package`
+## Graph
 
-Replace everything in the cloned repo:
+``` mermaid
+graph LR;
 
-- `haj_cv3_sorter` >> `cool_ros2_package` (the folder was already renamed after `Use this template`)
-- `sze-info` >> `mycoolusername`
-- find all `todo` strings and fill the blanks
+A[ /input_array<br/>std_msgs/msg/Float32MultiArray]:::light --> B([ /array_sorter]):::red
+B --> C[ /sorted_array<br/>std_msgs/msg/Float32MultiArray]:::light 
 
-The easiest way is VS code:
-
-<p align="center"><img src="img/replace01.png" width="90%" /></p>
-
-> [!IMPORTANT]  
-> Don't forget to rename the directory (folder) and the file too.
-
-Now `colcon build` your ROS 2 package and you can start wokring.
+classDef light fill:#34aec5,stroke:#152742,stroke-width:2px,color:#152742  
+classDef dark fill:#152742,stroke:#34aec5,stroke-width:2px,color:#34aec5
+classDef white fill:#ffffff,stroke:#152742,stroke-width:2px,color:#152742
+classDef red fill:#ef4638,stroke:#152742,stroke-width:2px,color:#fff
+```
